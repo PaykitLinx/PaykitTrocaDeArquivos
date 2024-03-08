@@ -1,0 +1,1339 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../LayoutMensagensComunicacao/">
+      
+      
+        <link rel="next" href="../OutrasConsideracoesTrocaDeArquivos/">
+      
+      
+      <link rel="icon" href="../icone/logo.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Especificação Troca de Arquivos - Paykit Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2 1 21Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#identificacao-da-automacao-comercial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Paykit Docs" class="md-header__button md-logo" aria-label="Paykit Docs" data-md-component="logo">
+      
+  <img src="../images/logolinx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paykit Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Especificação Troca de Arquivos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Paykit Docs" class="md-nav__button md-logo" aria-label="Paykit Docs" data-md-component="logo">
+      
+  <img src="../images/logolinx.png" alt="logo">
+
+    </a>
+    Paykit Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InformacoesTecnicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Informações técnicas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Componentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Componentes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LayoutMensagensComunicacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Layout de Mensagens de Comunicação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Especificação Troca de Arquivos
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Especificação Troca de Arquivos
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identificacao-da-automacao-comercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identificação da Automação Comercial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impressao-de-vias-diferenciadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impressão de vias diferenciadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valor-da-transacao-saque-e-desconto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valor da transação, Saque e Desconto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalhamento-dos-campos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detalhamento dos campos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presenca-dos-campos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presença dos Campos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Presença dos Campos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquivo-de-solicitacao-reqintpos001" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquivo de solicitação (Req\intpos.001)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquivo-de-resposta-respintpos001" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquivo de resposta (Resp\intpos.001)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OutrasConsideracoesTrocaDeArquivos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outras considerações Troca de Arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Download/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Download
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apendice
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Apendice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://paykitlinx.github.io/pages/Apendice/MapaDeTerminais/" target="_blank" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapa de terminais homologados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://paykitlinx.github.io/pages/Apendice/Contatos/" target="_blank" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contatos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://paykitlinx.github.io/pages/Apendice/RedesAutorizadasDTEF8/" target="_blank" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redes Autorizadoras D-TEF 8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://paykitlinx.github.io/pages/Apendice/Operadoras/" target="_blank" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operadoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://paykitlinx.github.io/pages/Apendice/Bandeiras/" target="_blank" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bandeiras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://paykitlinx.github.io/pages/Apendice/ManualIntegracaoPDF/" target="_blank" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manual Integração PDF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Apendice/HistoricoDeRevisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Historico de revisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identificacao-da-automacao-comercial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identificação da Automação Comercial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impressao-de-vias-diferenciadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impressão de vias diferenciadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valor-da-transacao-saque-e-desconto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valor da transação, Saque e Desconto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalhamento-dos-campos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detalhamento dos campos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presenca-dos-campos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Presença dos Campos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Presença dos Campos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquivo-de-solicitacao-reqintpos001" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquivo de solicitação (Req\intpos.001)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquivo-de-resposta-respintpos001" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquivo de resposta (Resp\intpos.001)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Especificação Troca de Arquivos</h1>
+
+<h2 id="identificacao-da-automacao-comercial"><strong>Identificação da Automação Comercial</strong></h2>
+<p>A Automação Comercial deve obrigatoriamente preencher em todos os arquivos de solicitação os campos <strong>716000</strong> e
+<strong>701-000</strong>, informando respectivamente a razão social da empresa responsável pelo desenvolvimento da Automação
+Comercial e o nome e a versão da aplicação de Automação Comercial.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><u>Exemplo</u></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    701-000 = Linx v2, 11, 0, 0 
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    716-000 = LINX AUTOMACAO
+</span></code></pre></div>
+<p><u>Importante:</u> não há uma nomenclatura específica exigida para o campo 701-000, porém:</p>
+<div class="language-text highlight"><pre><span></span><code>⦁ Deve incluir o nome completo da aplicação de Automação Comercial;
+⦁ Deve incluir a informação de versão completa da Automação Comercial;
+⦁ A informação de versão deve identificar sem ambiguidade o executável/binário 
+(ou conjunto de executáveis/binários) que compõe(m) a Automação Comercial.
+</code></pre></div>
+<h2 id="impressao-de-vias-diferenciadas"><strong>Impressão de vias diferenciadas</strong></h2>
+<p>O TEF passa a poder gerar 4 vias do comprovante, abaixo descritas.</p>
+<div class="language-text highlight"><pre><span></span><code>⦁ Via completa (campos 028-000 e 029-xxx)
+</code></pre></div>
+<p>Esta via contém todas as informações para ambos o Cliente e o Estabelecimento. É tipicamente usado em
+impressoras com folha dupla, ou quando a rede adquirente não suporta os demais tipos de comprovante. Este
+é o único comprovante que é obrigatoriamente gerado pelo TEF.</p>
+<div class="language-text highlight"><pre><span></span><code>⦁ Via diferenciada para o Estabelecimento (campos 714-000 e 715-xxx)
+</code></pre></div>
+<p>Esta via somente contém as informações relevantes para o Estabelecimento. Este comprovante é opcional,
+podendo ou não ser gerado pelo TEF. A Automação Comercial deve preferencialmente emitir esta via do
+comprovante para o Estabelecimento, para não divulgar informações somente relevantes para o Cliente
+(saldo do cartão, informações de pontuação/premiação, etc.).</p>
+<div class="language-text highlight"><pre><span></span><code>⦁ Via diferenciada para o Cliente (campos 712-000 e 713-xxx)
+</code></pre></div>
+<p>Esta via somente contém as informações relevantes para o Cliente. Este comprovante é opcional, podendo
+ou não ser emitido pelo TEF. A Automação Comercial deve preferencialmente emitir esta via do comprovante
+para o Cliente, para reduzir o consumo de papel.</p>
+<div class="language-text highlight"><pre><span></span><code>⦁ Cupom reduzido (campos 710-000 e 711-xxx)
+</code></pre></div>
+<p>Esta via somente contém as informações relevantes para o Cliente, excluindo informações que já estejam
+presentes no cupom fiscal (nome, endereço e CNPJ do Estabelecimento, data da transação, etc.). Se possível,
+este comprovante de até 5 linhas deve ser impresso pela Automação Comercial dentro do cupom fiscal, não num
+cupom fiscal vinculado. Este comprovante é opcional, podendo ou não ser emitido pelo TEF, e restrito a
+transações de Venda. A Automação Comercial deve preferencialmente emitir esta via do comprovante para o
+Cliente, para reduzir o consumo de papel.</p>
+<p>A Automação Comercial deve utilizar o fluxo abaixo para determinar quais vias do comprovante serão impressas:</p>
+<figure>
+<p><a class="glightbox" href="../../images/fluxoImpressaoComprovante.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="../../images/fluxoImpressaoComprovante.png" /></a>
+  </p>
+<figcaption>Fluxo de impressão de comprovante</figcaption>
+</figure>
+<h2 id="valor-da-transacao-saque-e-desconto"><strong>Valor da transação, Saque e Desconto</strong></h2>
+<p>Uma funcionalidade importante da plataforma Premia é a possibilidade de ser concedido ao Cliente um prêmio
+monetário instantâneo no momento da transação. Este prêmio se traduz por um desconto no valor da transação,
+que deve ser registrado na Impressora Fiscal pela Automação Comercial.</p>
+<p>Com isto, fazem-se necessários os seguintes controles adicionais:</p>
+<div class="language-text highlight"><pre><span></span><code>⦁ A Automação Comercial deve indicar em todos os arquivos de solicitação através do 
+campo 706-000se suporta a funcionalidade de saque (valor 1), a funcionalidade de desconto 
+(valor 2), ambas (valor 3) ou nenhuma (valor 0). Caso este campo não seja informado 
+(versões anteriores da Automação Comercial), o TEF assume o valor 0 (nenhuma das 
+funcionalidades é suportada).
+
+⦁ O campo 004-000 (moeda) é obrigatório em todos os arquivos que possuam o campo 
+003000 (valor da transação).
+
+⦁ O campo 707-000 indica o valor original da transação (o valor do campo 003-000 informado 
+pela Automação Comercial no arquivo de solicitação). Caso ausente, significa que o valor 
+da transação não foi alterado.
+
+⦁ O campo 708-000 indica o valor do saque/troco. Caso ausente, significa que não houve 
+saque na transação.
+
+⦁ O campo 709-000 indica o valor do desconto. Caso ausente, significa que não houve 
+desconto na transação.
+
+⦁ O campo 003-000 indica o valor final da transação, incluindo saque e desconto. Assim:
+
+Valor total (003-000) = Valor original (707-000) + Valor do saque (708000) – Valor do 
+desconto (709-000)
+</code></pre></div>
+<h2 id="detalhamento-dos-campos"><strong>Detalhamento dos campos</strong></h2>
+<p>Esta seção lista apenas os campos mencionados neste documento. Demais campos pré-existentes permanecem inalterados.</p>
+<p><u>Legenda para a coluna “Formato”:</u></p>
+<div class="language-text highlight"><pre><span></span><code>⦁ ‘n’ indica um campo contendo exclusivamente caracteres numéricos;
+
+⦁ ‘a’ indica um campo podendo conter qualquer caractere permitido, de acordo com “6.1.
+ Formato genérico”;
+
+⦁ ‘a7’ indica um campo de exatamente 7 caracteres;
+
+⦁ ‘a..5’ indica um campo de 1 a 5 caracteres.
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Nome</th>
+<th>Formato</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>003-000</td>
+<td>Valor total</td>
+<td>n..12</td>
+<td>Valor total da operação, em centavos da moeda informada no campo 004-000.<br><br>No arquivo de resposta para transações de venda, este campo indica o valor efetivamente debitado do Cliente e creditado para o Estabelecimento (desconsiderando taxas referentes ao uso da solução, descontadas pela rede adquirente).</td>
+</tr>
+<tr>
+<td>004-000</td>
+<td>Moeda</td>
+<td>n1</td>
+<td>0: Real<br>1: Dólar americano</td>
+</tr>
+<tr>
+<td>028-000</td>
+<td>Tamanho via única</td>
+<td>n..3</td>
+<td>Quantidade de linhas da via única do comprovante.</td>
+</tr>
+<tr>
+<td>029-xxx</td>
+<td>Via única do comprovante</td>
+<td>a..40</td>
+<td>Linha da via única do comprovante, entre aspas duplas.<br>xxx indica o número da linha, de 001 até a quantidade total de linhas indicada pelo campo 028-000.</td>
+</tr>
+<tr>
+<td>701-000</td>
+<td>Versão da automação</td>
+<td>a..40</td>
+<td>Nome e versão da Automação Comercial.<br>Exemplo: SUPERVENDAS v1.01</td>
+</tr>
+<tr>
+<td>706-000</td>
+<td>Capacidades da automação</td>
+<td>n1</td>
+<td>Soma dos seguintes valores, identificando as funcionalidades suportadas pela Automação Comercial:<br><br>1: funcionalidade de saque (ver campo 708-000)<br>2: funcionalidade de desconto (ver campo 709-000)<br><br>Caso este campo não seja informado pela Automação Comercial, considera-se que nenhuma das funcionalidades é suportada.</td>
+</tr>
+<tr>
+<td>707-000</td>
+<td>Valor original</td>
+<td>n12</td>
+<td>Valor original da transação informado pela Automação Comercial no campo 003000 do arquivo de solicitação, em centavos da moeda identificada no campo 004-000.<br><br>Este campo é informado pelo TEF caso seja diferente do valor final da transação informado no campo 003-000 do arquivo de resposta, sempre respeitando a regra abaixo:<br><br>Valor total (003-000) = Valor original (707-000) + Valor do saque (708000) – Valor do desconto (709-000)</td>
+</tr>
+<tr>
+<td>708-000</td>
+<td>Valor do saque</td>
+<td>n12</td>
+<td>Valor de retirada em dinheiro (saque no cartão) realizada em conjunto com a transação de venda.<br><br>Este valor é acrescido ao valor original da transação, e deve ser registrado na Impressora Fiscal como “troco”.</td>
+</tr>
+<tr>
+<td>709-000</td>
+<td>Valor do desconto</td>
+<td>n12</td>
+<td>Valor do desconto concedido ao Cliente pela rede adquirente ou pelo Emissor para uma transação de venda.<br><br>Este valor é retirado do valor original da transação, e deve ser registrado na Impressora Fiscal como “desconto”.</td>
+</tr>
+<tr>
+<td>710-000</td>
+<td>Tamanho cupom reduzido</td>
+<td>n..3</td>
+<td>Quantidade de linhas do cupom reduzido.</td>
+</tr>
+<tr>
+<td>711-xxx</td>
+<td>Cupom reduzido</td>
+<td>a..40</td>
+<td>Linha do cupom reduzido, entre aspas duplas.<br><br>xxx indica o número da linha, de 001 até a quantidade total de linhas indicada pelo campo 710-000.</td>
+</tr>
+<tr>
+<td>712-000</td>
+<td>Tamanho via Cliente</td>
+<td>n..3</td>
+<td>Quantidade de linhas da via diferenciada do comprovante destinada ao Cliente.</td>
+</tr>
+<tr>
+<td>713-xxx</td>
+<td>Via Cliente do comprovante</td>
+<td>a..40</td>
+<td>Linha da via do Cliente, entre aspas duplas.<br><br>xxx indica o número da linha, de 001 até a quantidade total de linhas indicada pelo campo 712-000.</td>
+</tr>
+<tr>
+<td>714-000</td>
+<td>Tamanho via Estabelecimento</td>
+<td>n..3</td>
+<td>Quantidade de linhas da via diferenciada do comprovante destinada ao Estabelecimento.</td>
+</tr>
+<tr>
+<td>715-xxx</td>
+<td>Via Estabelecimento do comprovante</td>
+<td>a..40</td>
+<td>Linha da via do Estabelecimento, entre aspas duplas.<br><br>xxx indica o número da linha, de 001 até a quantidade total de linhas indicada pelo campo 714-000.</td>
+</tr>
+<tr>
+<td>716-000</td>
+<td>Empresa da Automação</td>
+<td>a..40</td>
+<td>Razão social da empresa responsável pelo desenvolvimento da aplicação de Automação Comercial.<br><br>Exemplo: KND SISTEMAS LTDA.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="presenca-dos-campos"><strong>Presença dos Campos</strong></h2>
+<div class="language-text highlight"><pre><span></span><code>⦁ ‘M’ indica que a presença do campo é obrigatória;
+
+⦁ ‘O’ indica que a presença do campo é opcional;
+
+⦁ ‘E’ indica que o campo é ecoado (idêntico ao arquivo de solicitação);
+
+⦁ ‘C1’ indica que o campo está presente caso o campo anterior seja diferente 
+de zero (tamanho do comprovante);
+
+A ausência de caractere em uma coluna indica que o campo não é esperado.
+</code></pre></div>
+<h3 id="arquivo-de-solicitacao-reqintpos001"><strong>Arquivo de solicitação (Req\intpos.001)</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Nome</th>
+<th>ATV</th>
+<th>CRT</th>
+<th>ADM</th>
+<th>CNC</th>
+<th>CHQ</th>
+<th>CNF</th>
+<th>NCN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>003-000</td>
+<td>Valor total</td>
+<td></td>
+<td>M</td>
+<td></td>
+<td>M</td>
+<td>M</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>004-000</td>
+<td>Moeda</td>
+<td></td>
+<td>M</td>
+<td></td>
+<td>M</td>
+<td>M</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>701-000</td>
+<td>Versão da Automação</td>
+<td></td>
+<td>M</td>
+<td>M</td>
+<td>M</td>
+<td>M</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>706-000</td>
+<td>Capacidades da Automação</td>
+<td></td>
+<td>M</td>
+<td>M</td>
+<td>M</td>
+<td>M</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>716-000</td>
+<td>Empresa da Automação</td>
+<td></td>
+<td>M</td>
+<td>M</td>
+<td>M</td>
+<td>M</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="arquivo-de-resposta-respintpos001"><strong>Arquivo de resposta (Resp\intpos.001)</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Nome</th>
+<th>CRT</th>
+<th>ADM</th>
+<th>CNC</th>
+<th>CHQ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>003-000</td>
+<td>Valor Total</td>
+<td>M</td>
+<td>O</td>
+<td>M</td>
+<td>M</td>
+</tr>
+<tr>
+<td>004-000</td>
+<td>Moeda</td>
+<td>M</td>
+<td>O</td>
+<td>M</td>
+<td>M</td>
+</tr>
+<tr>
+<td>707-000</td>
+<td>Valor Original</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>708-000</td>
+<td>Valor do Saque</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>709-000</td>
+<td>Valor do Desconto</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>710-000</td>
+<td>Tamanho cupom reduzido</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>711-xxx</td>
+<td>Cupom reduzido</td>
+<td>C1</td>
+<td>C1</td>
+<td>C1</td>
+<td>C1</td>
+</tr>
+<tr>
+<td>712-000</td>
+<td>Tamanho via Cliente</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>713-xxx</td>
+<td>Via Cliente do comprovante</td>
+<td>C1</td>
+<td>C1</td>
+<td>C1</td>
+<td>C1</td>
+</tr>
+<tr>
+<td>714-000</td>
+<td>Tamanho via Estabelecimento</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>715-xxx</td>
+<td>Via Estabelecimento do comprovante</td>
+<td>C1</td>
+<td>C1</td>
+<td>C1</td>
+<td>C1</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../LayoutMensagensComunicacao/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Layout de Mensagens de Comunicação">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Layout de Mensagens de Comunicação
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../OutrasConsideracoesTrocaDeArquivos/" class="md-footer__link md-footer__link--next" aria-label="Next: Outras considerações Troca de Arquivos">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Outras considerações Troca de Arquivos
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Linx Sistemas e Consultoria Ltda
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/linxretail" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/linxretail/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/PayHubLinx" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

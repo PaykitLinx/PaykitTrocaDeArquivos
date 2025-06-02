@@ -1077,7 +1077,7 @@
 </tr>
 <tr>
 <td>012-000</td>
-<td>NÚMERO DA TRANSAÇÃO - NSU</td>
+<td>NÚMERO DA TRANSAÇÃO - NSU TEF</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
@@ -1113,7 +1113,7 @@
 </tr>
 <tr>
 <td>027-000</td>
-<td>FINALIZAÇÃO</td>
+<td>NÚMERO DA TRANSAÇÃO - NSU HOST</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
@@ -1424,7 +1424,7 @@
 </tr>
 <tr>
 <td>012-000</td>
-<td>NÚMERO DA TRANSAÇÃO - NSU</td>
+<td>NÚMERO DA TRANSAÇÃO - NSU TEF</td>
 <td>-</td>
 <td>O</td>
 <td>M(1)</td>
@@ -1574,7 +1574,7 @@
 </tr>
 <tr>
 <td>027-000</td>
-<td>FINALIZAÇÃO</td>
+<td>NÚMERO DA TRANSAÇÃO - NSU HOST</td>
 <td>-</td>
 <td>O</td>
 <td>M(1)</td>
@@ -1828,7 +1828,7 @@
 </tr>
 <tr>
 <td>012-000</td>
-<td><strong>NÚMERO DA TRANSAÇÃO - NSU<br>Finalidade:</strong><br>Indica o número de seqüência (NSU – Número Sequencial Único) da transação atribuído pelo Host (Sistema das Redes de Cartão que recebe e trata as solicitações das transações TEF).<br><br>Quando este campo é enviado do Gerenciador para o Aplicativo de Automação Comercial, ele representa o NSU do Host estabelecido para a transação.<br><br>Quando este campo é enviado do Aplicativo de Automação Comercial para o Gerenciador, ele representa o NSU da transação a ser tratada (cancelada, confirmada etc.)<br><strong>Formato:</strong><br> Numérico de até 12 bytes.</td>
+<td><strong>NÚMERO DA TRANSAÇÃO - NSU TEF<br>Finalidade:</strong><br>Indica o número de seqüência (NSU – Número Sequencial Único) da transação atribuído pelo TEF.<br><br>Quando este campo é enviado do Gerenciador para o Aplicativo de Automação Comercial, ele representa o NSU do TEF estabelecido para a transação.<br><br>Quando este campo é enviado do Aplicativo de Automação Comercial para o Gerenciador, ele representa o NSU da transação a ser tratada (cancelada, confirmada etc.)<br><strong>Formato:</strong><br> Numérico de até 12 bytes.</td>
 </tr>
 <tr>
 <td>013-000</td>
@@ -1888,7 +1888,7 @@
 </tr>
 <tr>
 <td>027-000</td>
-<td><strong>FINALIZAÇÃO<br>Finalidade:</strong><br>Dados recebidos do Módulo TEF que executou a transação e que devem ser devolvidos no comando de finalização de uma venda.<br><strong>Formato:</strong><br>Alfanumérico de até 30 bytes.</td>
+<td><strong>NÚMERO DA TRANSAÇÃO - NSU HOST<br>Finalidade:</strong><br>Dados recebidos do Módulo TEF que executou a transação e que devem ser devolvidos no comando de finalização de uma venda.<br>Indica o número de seqüência (NSU – Número Sequencial Único) da transação atribuído pelo Host (Sistema das Redes de Cartão que recebe e trata as solicitações das transações TEF).<br><br><strong>Formato:</strong><br>Alfanumérico de até 30 bytes.</td>
 </tr>
 <tr>
 <td>028-000</td>
@@ -2066,7 +2066,7 @@
 </tr>
 <tr>
 <td>012-000 = 123456789000</td>
-<td>Número da NSU</td>
+<td>Número da transação - NSU TEF</td>
 </tr>
 <tr>
 <td>013-000 = 123456</td>
@@ -2094,7 +2094,7 @@
 </tr>
 <tr>
 <td>027-000 = 123XXYTZAAABC</td>
-<td>Finalização</td>
+<td>NSU do Host</td>
 </tr>
 <tr>
 <td>028-000 = 20</td>
@@ -2191,11 +2191,11 @@
 </tr>
 <tr>
 <td>012-000 = 123456789000</td>
-<td>Número da Transação NSU</td>
+<td>Número da Transação - NSU TEF</td>
 </tr>
 <tr>
 <td>027-000 = 123XXYTZAAABC</td>
-<td>Finalização</td>
+<td>NSU do Host</td>
 </tr>
 <tr>
 <td>999-999 = 0</td>
